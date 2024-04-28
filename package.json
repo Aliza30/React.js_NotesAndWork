@@ -1,0 +1,20 @@
+{
+  "name": "react-",
+  "version": "1.0.0",
+  "description": "this is react study material",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "react",
+    "namaste",
+    "react."
+  ],
+  "author": "",
+  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Aliza30/React.js_NotesAndWork.git"
+  }
+}
