@@ -9,7 +9,10 @@
 </head>
 
 <body>
-    <div id="root"></div>
+    <div id="root">
+        <h1>not render</h1>
+    </div>
+
     <!-- <script>
         const headind = document.createElement("h1");
         headind.innerHTML = "Hello World";
@@ -17,10 +20,8 @@
         const root = document.getElementById("root");
         root.appendChild(headind);
     </script> -->
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
-    <script src="./App.js">
+    <script type="module" src="./App.js">
     </script>
 </body>
 
