@@ -5,7 +5,7 @@ const ResturantCard = (props) => {
     //props is now a js object
     const { resData } = props
     //Destructuring the code for better n clean code
-    const { name, cuisines, avgRating, costForTwo, cloudinaryImageId } = resData?.info;
+    const { name, cuisines, avgRating, costForTwo, cloudinaryImageId, sla } = resData?.info;
     return (
         <div className="res-card" style={{ backgroundColor: "pink", }}>
             <img className="res-logo"
@@ -15,7 +15,7 @@ const ResturantCard = (props) => {
             <h4>{cuisines.join(", ")} </h4>
             <h4> {costForTwo} </h4>
             <h4> {avgRating} rating </h4>
-            <h4>{costForTwo}</h4>
+            <h4>{sla?.slaString}</h4>
         </div>
     )
 }
