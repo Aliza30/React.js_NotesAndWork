@@ -1,16 +1,19 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { useParams } from "react-router-dom";
+import { MENU_URL } from "../utils/constants";
+
 const ResturantMenu = () => {
 
     const [resMenu, setResMenu] = useState(null);
-
+    const { resId } = useParams();
     const fetchMenu = async () => {
         const data = await fetch(
-            "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=26.843275&lng=80.994529&restaurantId=625181&catalog_qa=undefined&query=Pizza&submitAction=ENTER"
+            MENU_URL + resId
         );
         const jsonData = await data.json();
-        console.log(jsonData?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR.cards[3]?.card?.card?.itemCards);
+        // console.log(jsonData?.data?.cards[2]?.card.card?.info);
         setResMenu(jsonData.data);
     };
 
@@ -22,9 +25,9 @@ const ResturantMenu = () => {
 
 
     const { name, avgRating, cuisines, costForTwoMessage } = resMenu?.cards[2]?.card?.card?.info || {};
-    console.log(name)
-    const itemCards = resMenu?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[3]?.card?.card?.itemCards || [];
-    console.log(itemCards);
+    // console.log(name)
+    const itemCards = resMenu?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[2]?.card?.card?.itemCards || [];
+    // console.log(itemCards);
     // const { itemcard } = resMenu?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR.cards[3]?.card?.card?.itemCards
     // console.log(itemcard);
     return (
@@ -35,11 +38,11 @@ const ResturantMenu = () => {
             <p>{costForTwoMessage}</p>
             <ul>
                 {itemCards.map(item =>
-                    <li>{item.card.info.name}</li>
+                    <li key={item?.card?.info?.id || index} >{item.card.info.name} : Rs. {item.card.info.price / 100 || item.card.info.defaultPrice / 100}</li>
                 )}
 
             </ul>
         </div>
     );
 };
-export default ResturantMenu
+export default ResturantMenu;
