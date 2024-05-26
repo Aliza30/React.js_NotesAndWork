@@ -19,7 +19,6 @@
 
 .nav-items>ul {
     display: flex;
-
     list-style: none;
 }
 
@@ -37,7 +36,6 @@
     margin: 5px;
     padding: 5px;
     width: 200px;
-
     padding: 5px;
 }
 
@@ -85,4 +83,8 @@
 .user-card {
     padding: 10px;
     border: 1px solid black;
+}
+
+.offline-status {
+    text-align: center;
 }

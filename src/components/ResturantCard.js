@@ -7,7 +7,7 @@ const ResturantCard = (props) => {
     //Destructuring the code for better n clean code
     const { name, cuisines, avgRating, costForTwo, cloudinaryImageId, sla } = resData?.info;
     return (
-        <div className="res-card" style={{ backgroundColor: "pink", }}>
+        <div className="res-card" style={{ backgroundColor: "white", }}>
             <img className="res-logo"
                 alt="res-logo" src={
                     CDN_URL + cloudinaryImageId} />

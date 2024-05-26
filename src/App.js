@@ -1,5 +1,5 @@
 
-import React, { Children } from "react";
+import React, { Children, Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -8,8 +8,8 @@ import AboutUs from "./components/AboutUs";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import ResturantMenu from "./components/ResturantMenu";
-
-
+import Shimmer from "./components/Shimmer";
+// import Grocery from "./components/Grocery";
 //--------- app name: FOODIX ----------
 //--------- Body --------- -
 
@@ -18,7 +18,7 @@ const stylecolor = {}
 //destructure on fly------->
 
 
-
+const Grocery = lazy(() => import("./components/Grocery"));
 
 const AppLayout = () => {
     return (
@@ -45,6 +45,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/contactus",
                 element: <Contact />,
+
+            }, {
+                path: "/grocery",
+                element: <Suspense fallback={<Shimmer />}> <Grocery /></Suspense>,
 
             },
             {
